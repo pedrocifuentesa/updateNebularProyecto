@@ -1,0 +1,16 @@
+<nb-card>
+  <nb-card-header> {{titulo}} </nb-card-header>
+  <nb-card-body>
+     <div class="row">
+       <div class="col-12">
+         <p>Si eliminar esta cuadrilla borrara a toda la dotación</p>
+          <p>¿Desea Eliminar Cuadrilla?</p>
+       </div>
+     </div>
+      <div class="row justify-content-around" style="margin: 1rem;">
+        <button type="button" class="btn btn-danger" (click)="cancel()">Cerrar</button>
+        <button type="button" class="btn btn-warning" (click)="eliminarCuadrilla()" >Eliminar</button>
+      </div>
+
+  </nb-card-body>
+</nb-card>

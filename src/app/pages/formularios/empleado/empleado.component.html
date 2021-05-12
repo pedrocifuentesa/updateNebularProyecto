@@ -1,0 +1,81 @@
+
+<div class="row" style="margin: 2rem;">
+    <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+        <nb-card style="width: 100%; height: 100%;">
+            <nb-card-header>Contrato</nb-card-header>
+            <nb-card-body>
+                <label>Empresa</label>
+                <nb-select fullWidth [(selected)]="linkrutempresa">
+                    <nb-option (click)="capturar(empresa.RUT_EMPRESA)" *ngFor="let empresa of listaEmpresa"
+                        [value]="empresa.RUT_EMPRESA" selected="linkrutempresa">[{{empresa.RUT_EMPRESA}}] {{empresa.NOMBRE_FANTASIA_EMPRESA}}</nb-option>
+                </nb-select>
+                <label>Contrato</label>
+                <nb-select fullWidth>
+                    <nb-option (click)="cargarEmpleado(contratos)" *ngFor="let contratos of listaDeContratosPorEmpresa"
+                        [value]="contratos">[{{contratos.NUMERO_CONTRATO}}] {{contratos.NOMBRE_CONTRATO}}</nb-option>
+                </nb-select>
+            </nb-card-body>
+        </nb-card>
+    
+    </div>
+    <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+        <nb-card style="width: 100%; height: 100%;">
+            <nb-card-header>Informacion Contrato</nb-card-header>
+            <nb-card-body> 
+                <p>Nombre: {{nombre_Contrato}}</p>
+                <p>Descripción: {{descripcion_Contrato}}</p>administrarAsistencia
+                <button class="btn btn-secondary btn-block" (click)="administrarCuadrilla()">Administrar Cuadrillas</button>
+                <button class="btn btn-secondary btn-block" (click)="administrarAsistencia()">Administrar Asistencia</button>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-4 text-center">
+        <button class="btn btn-secondary btn-block" (click)="open()">Ingresar Persona</button>   
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table table-sm table-active table-responsive">
+            <thead>
+                <tr> <th>#</th>
+                    <th>RUT EMPLEADO</th>
+                    <th>NOMBRE</th>
+                    <th>TIPO EMPLEADO</th>
+                    <th>ESPECIALIDAD</th>
+                    <th>CARGO</th>
+                    <th>JORNADA</th>
+                    <th>TURNO</th>
+                    <th>FECHA INICIO</th>
+                    <th>FECHA FIN</th>
+                    <th>LUGAR DE TRABAJO</th>
+                    <th>MANO OBRA EMPLEADO</th>
+                    <th>ESTADO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let empleadosContratados2 of listaDeEmpleadosEnContrato">
+                <td class="text-nowrap">
+                            <button type="button" class="btn-Sep btn btn-secondary" (click)="actualizarEmpleado(empleadosContratados2)"><i class="fas fa-edit"></i></button>
+                            <button  [disabled]="empleadosContratados2.ESTADO==='DESVINCULADO'" (click)="eliminarEmpleado(empleadosContratados2)"  type="button" class="btn-Sep btn btn-secondary"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    <td>{{empleadosContratados2.RUT}}</td>
+                    <td>{{empleadosContratados2.EMPLEADO}}</td>
+                    <td>{{empleadosContratados2.TIPO_EMPLEADO}}</td>
+                    <td>{{empleadosContratados2.ESPECIALIDAD}}</td>
+                    <td>{{empleadosContratados2.CARGO}}</td>
+                    <td>{{empleadosContratados2.JORNADA}}</td>
+                    <td>{{empleadosContratados2.TURNO}}</td>
+                    <td>{{empleadosContratados2.FECHA_INICIO}}</td>
+                    <td>{{empleadosContratados2.FECHA_FIN}}</td>
+                    <td>{{empleadosContratados2.LUGAR_TRABAJO}}</td>
+                    <td>{{empleadosContratados2.MANO_OBRA_EMPLEADO}}</td>
+                    <td>{{empleadosContratados2.ESTADO}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

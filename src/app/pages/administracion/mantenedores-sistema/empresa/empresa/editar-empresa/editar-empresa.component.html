@@ -1,0 +1,38 @@
+
+<nb-card>
+    <nb-card-header>Editar Empresa</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="empresaFormUpdate">
+            <div class="row col-12">
+                <div class="col-4">
+                    <label>Razon Empresa</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" formControlName="razonEmpresa" nbInput placeholder="Razon Empresa">
+                </div>
+            </div>
+            <div class="row col-12">
+                <div class="col-4">
+                    <label>Nombre Empresa</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" formControlName="nombreEmpresa" nbInput placeholder="Nombre Social">
+                </div>
+            </div>
+            <div class="row col-12">
+                <div class="col-4">
+                    <label>Direnccion Empresa</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" formControlName="direcionEmpresa" nbInput placeholder="Direccion">
+                </div>
+            </div>
+           
+            
+        </form>
+    </nb-card-body>
+    <nb-card-footer>
+        <button class="cancel" nbButton status="danger" >Cancel</button>
+        <button nbButton status="success" (click)="update()">Submit</button>
+    </nb-card-footer>
+  </nb-card>

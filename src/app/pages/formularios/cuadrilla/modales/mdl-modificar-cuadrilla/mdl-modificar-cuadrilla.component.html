@@ -1,0 +1,18 @@
+<nb-card>
+  <nb-card-header> {{titulo}} </nb-card-header>
+  <nb-card-body>
+    <form id="idFormCuadrilla" [formGroup]="formCuadrilla">
+      <label>Nombre Cuadrilla</label>
+      <input formControlName="inpNombre" placeholder="Nombre Cuadrilla" fullWidth nbInput>
+      <!-- <label>Vigencia</label>
+      <nb-select formControlName="selVigencia" placeholder="Vigencia" fullWidth>
+        <nb-option value="S">Activo</nb-option>
+        <nb-option value="N">Inactivo</nb-option>
+      </nb-select> -->
+      <div class="row justify-content-around" style="margin: 1rem;">
+        <button type="button" class="btn btn-danger" (click)="cancel()">Cerrar</button>
+        <button type="button" class="btn btn-success" (click)="modificarCuadrilla()">Modificar</button>
+      </div>
+    </form>
+  </nb-card-body>
+</nb-card>

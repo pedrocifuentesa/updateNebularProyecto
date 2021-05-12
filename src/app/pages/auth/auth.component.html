@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-12">
+        <h1 id="title" class="title">Login</h1>
+    </div>
+</div>
+
+    <div class="row " style="margin: 2px;">
+        <div class="col-12 text-center" style="margin: 2px;">
+            <input class="form-control text-center" placeholder="Rut" type="text" maxlength="12" [(ngModel)]="rut">
+        </div>
+        <div class="col-12 text-center" style="margin: 2px;">
+            <input class="form-control text-center" placeholder="Password" type="password" [(ngModel)]="password">
+        </div>
+    </div>
+
+    <div class="row " style="margin: 5px;">
+        <div class="col-12 text-center">
+            {{Error}}
+        </div>
+    </div>
+
+<div class="row " style="margin: 2px;">
+    <div class="col-12 text-center">
+        <button class="btn btn-secondary" (click)="login()">Ingresar</button>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<nb-card>
+    <nb-card-header>
+      Detalle Plantillas
+    </nb-card-header>
+  
+    <nb-card-body>
+
+      <div class="row" style="margin: 2rem;">
+        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <nb-card style="width: 100%; height: 100%;">
+                <nb-card-header>Contrato</nb-card-header>
+                <nb-card-body>
+                    <label>Empresa</label>
+                    <nb-select fullWidth>
+                        <nb-option (click)="getDetllaPlantilla(plantilla)" *ngFor="let plantilla of listaPlantillas"
+                            [value]="plantilla.ID_PLANTILLA" >{{plantilla.NOMBRE_PLANTILLA}} </nb-option>
+                    </nb-select>
+                </nb-card-body>
+            </nb-card>
+        
+        </div>
+        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+            <nb-card style="width: 100%; height: 100%;">
+                <nb-card-header>Informacion Contrato</nb-card-header>
+                <nb-card-body> 
+                    <p>Nombre: </p>
+                    <p>Descripción: </p>administrarAsistencia
+                <!--     <button class="btn btn-secondary btn-block">Administrar Cuadrillas</button>
+                    <button class="btn btn-secondary btn-block">Administrar Asistencia</button> -->
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+<div class="row"> 
+      <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (createConfirm)="onCreateConfirm($event)" (editConfirm)="onSaveConfirm($event)">
+      </ng2-smart-table>
+    </div>
+    </nb-card-body>
+  </nb-card>

@@ -1,0 +1,48 @@
+<nb-card>
+  <nb-card-header>{{titulo}}</nb-card-header>
+  <nb-card-body class="table-responsive-xl">
+
+    <form id="idFormCuadrilla" [formGroup]="formEmpleadoCuadrilla">
+      <div class="row">
+        <div class="col-4">
+          <label for="empleadoSel">Empleado</label>
+        </div>
+        <div class="col-6">
+          <nb-select formControlName="empleadoSel" fullWidth>
+            <nb-option *ngFor="let perFueCuadrilla of personasFueraCuadrilla" [value]="perFueCuadrilla.RUT_EMPLEADO">{{perFueCuadrilla.RUT_EMPLEADO}} {{perFueCuadrilla.EMPLEADO}}</nb-option>
+          </nb-select>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col-4">
+          <label for="fechaini">Fecha inicio</label>
+        </div>
+        <div class="col-6">
+          <input formControlName="fechaini" [nbDatepicker]="fechaini" placeholder="Fecha de Inicio" nbInput fullWidth>
+          <nb-datepicker #fechaini [min]="min" [max]="max" format="DD-MM-YYYY"></nb-datepicker>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <label for="fechafin">Fecha de Termino</label>
+        </div>
+        <div class="col-6">
+          <input formControlName="fechafin" [nbDatepicker]="fechafin" placeholder="Fecha de Termino" nbInput fullWidth>
+          <nb-datepicker #fechafin [min]="min" [max]="max" format="DD-MM-YYYY"></nb-datepicker>
+        </div>
+      </div> -->
+      <div class="row">
+        <!-- <nb-select formControlName="selVigencia" placeholder="Vigencia" fullWidth>
+          <nb-option value="S">Activo</nb-option>
+          <nb-option value="N">Inactivo</nb-option>
+        </nb-select> -->
+      </div>
+      <div class="row justify-content-around" style="margin: 1rem;">
+        <button type="button" class="btn btn-danger" (click)="cancel()">Cerrar</button>
+        <button type="button" class="btn btn-success"(click)="insertarEmpleadoAdotacion()" >Crear</button>
+      </div>
+    </form>
+  </nb-card-body>
+
+</nb-card>

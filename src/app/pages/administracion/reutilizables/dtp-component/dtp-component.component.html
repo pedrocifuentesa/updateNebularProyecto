@@ -1,0 +1,27 @@
+<!-- <input [ngClass]="inputClass" 
+nbInput 
+(focus)="updateValue()"
+placeholder="Picker"  
+[(ngModel)]="dtpfn"
+[nbDatepicker]="picker1" 
+>
+ #fechaCumple
+[name]="cell.getId()" 
+[disabled]="!cell.isEditable()" 
+[placeholder]="cell.getTitle()" 
+(click)="onClick.emit($event)" 
+(keydown.enter)="onEdited.emit($event)"
+(keydown.esc)="onStopEditing.emit()"
+<nb-datepicker #picker1 format="DD-MM-YYYY"></nb-datepicker>  -->
+ 
+<input #fechaCumple [ngClass]="inputClass" 
+(focus)="updateValue(this)" 
+[nbDatepicker]="datepicker"
+[name]="cell.getId()" 
+[disabled]="!cell.isEditable()" 
+[placeholder]="cell.getTitle()" 
+(click)="onClick.emit($event)" 
+(keydown.enter)="onEdited.emit($event)"
+(keydown.esc)="onStopEditing.emit()"
+>
+<nb-datepicker #datepicker format="DD-MM-YYYY"></nb-datepicker>

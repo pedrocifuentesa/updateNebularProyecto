@@ -1,0 +1,62 @@
+<nb-card>
+
+    <nb-card-header>Crear Contrato</nb-card-header>
+    <nb-card-body class="table-responsive-xl">
+
+        <form id="formContrato" [formGroup]="formContrato">
+
+            <!--   <label fullWidth>Rut Empresa</label>
+                <nb-select formControlName="rutEmpresa"  selected="1" fullWidth>
+                    <nb-option *ngFor="let value of listaEmpresa" [value]="value">{{value.NOMBRE_FANTASIA_EMPRESA}}</nb-option>
+                </nb-select> -->
+            <nb-card>
+                <nb-card-header>Rut Empresa</nb-card-header>
+                <nb-card-body>
+                    <nb-select formControlName="rutEmpresa" selected="1" fullWidth>
+                        <nb-option *ngFor="let value of listaEmpresa" [value]="value">{{value.NOMBRE_FANTASIA_EMPRESA}}
+                        </nb-option>
+                    </nb-select>
+                </nb-card-body>
+            </nb-card>
+            <label fullWidth>Nro Contrato</label>
+            <input formControlName="nroContrato" type="text" nbInput fullWidth placeholder="Nro Contrato">
+            <label fullWidth>Nombre Contrato</label>
+            <input formControlName="nombreContrato" type="text" nbInput fullWidth placeholder="Nombre Contrato">
+            <label fullWidth>Descripción Contrato</label>
+            <input formControlName="descripcionContrato" type="text" nbInput fullWidth
+                placeholder="Descripción Contrato">
+            <div class="row">
+                <div class="col-6">
+                    <nb-card>
+                        <nb-card-header>Desde</nb-card-header>
+                        <nb-card-body>
+                            <input formControlName="fechaDesde" nbInput placeholder="Picker" [nbDatepicker]="picker1">
+                            <nb-datepicker #picker1></nb-datepicker>
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+                <div class="col-6">
+                    <nb-card>
+                        <nb-card-header>Hasta</nb-card-header>
+                        <nb-card-body>
+                            <input formControlName="fechaHasta" nbInput placeholder="Picker" [nbDatepicker]="picker2">
+                            <nb-datepicker #picker2></nb-datepicker>
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+
+            </div>
+            <!-- [disabled]="!formContrato.valid" -->
+            <!-- <div class="col-12 "><button class="btn btn-secondary" (click)="crearContrato()"  type="submit">Crear</button></div> -->
+            <div class="row">
+                <div class="col-6 text-left"><button class="cancel" nbButton status="danger"
+                        (click)="cancel()">Cancel</button></div>
+                <div class="col-6 text-right"><button nbButton status="success" (click)="crearContrato()">Agregar</button></div>
+            </div>
+            <!--   <button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+      <button nbButton  status="success" (click)="submit()">Agregar</button> -->
+        </form>
+    </nb-card-body>
+
+
+</nb-card>

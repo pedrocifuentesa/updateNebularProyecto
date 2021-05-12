@@ -1,0 +1,22 @@
+<nb-card>
+    <nb-card-header>
+      Mantenedor Perfil Empresas
+    </nb-card-header>
+  
+    <nb-card-body>
+      <div class="row">
+        <div class="col-12 mx-auto">
+<!--           <input nbInput placeholder="Pick Date" [nbDatepicker]="formcontrol" [formControl]="formControl">
+        <nb-datepicker #formcontrol></nb-datepicker> -->
+          <label>Fecha Asistencia</label>
+          <input nbInput  [nbDatepicker]="datepicker" [formControl]="formControl" (focus)="getListaAsistencia()" >
+          <nb-datepicker #datepicker [max]="max" format="DD-MM-YYYY"></nb-datepicker>
+          <button type="button" name="" id="registrarAsistencia" class="btn btn-primary btn-lg" (click)="registrarAsistencia()" >Registrar Asistencia</button>
+        </div>
+      </div>
+        <!-- (createConfirm)="onCreateConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)" -->
+      <ng2-smart-table [settings]="settings" [source]="source" (editConfirm)="onEdit($event)">
+  
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>

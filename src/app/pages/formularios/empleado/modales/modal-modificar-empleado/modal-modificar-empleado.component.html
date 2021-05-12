@@ -1,0 +1,153 @@
+<nb-card>
+
+  <nb-card-header>Actualizar Empleado</nb-card-header>
+  <nb-card-body class="table-responsive-xl">
+
+    <form id="idFormUpdateEmpleado" [formGroup]="formUpdateEmpleado">
+      <nb-card>
+        <nb-card-header>Empleado</nb-card-header>
+        <nb-card-body>
+          <!-- Empleado -->
+          <div class="row">
+            <div class="col-4">
+              <label for="empleadoMod">Empleado</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="empleadoMod" fullWidth>
+                <nb-option [value]="empleadoModificar.RUT">{{empleadoModificar.EMPLEADO}}</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <!-- TipoEmpleado -->
+          <div class="row">
+            <div class="col-4">
+              <label for="tipoEmpleadoSel">Tipo Empleado</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="tipoEmpleadoSel" fullWidth>
+                <nb-option *ngFor="let tipoEmpleado of listaTE" [value]="tipoEmpleado.ID_TE">
+                  {{tipoEmpleado.NOMBRE_TIPO_TE}}
+                </nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <label for="tipoEmpleadoSel">Especialidad</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="selectEspecialidad" fullWidth>
+                <nb-option *ngFor="let especialidad of listaEspecialidad" [value]="especialidad.ID_ESPECIALIDAD">
+                  {{especialidad.NOMBRE_ESPECIALIDAD}}
+                </nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <!-- CargoEmpleado -->
+          <div class="row">
+            <div class="col-4">
+              <label for="cargoSel">Cargo</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="cargoSel" fullWidth>
+                <nb-option *ngFor="let cargo of listaCargo" [value]="cargo.ID_CARGO">{{cargo.NOMBRE_CARGO}}</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <!-- Jornada Empleado -->
+          <div class="row">
+            <div class="col-4">
+              <label for="jornadaSel">Jornada</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="jornadaSel" fullWidth>
+                <nb-option *ngFor="let jornada of listaJornada" [value]="jornada.ID_JORNADA">{{jornada.NOMBRE_JORNADA}}
+                </nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <!-- Turno Empleado -->
+          <div class="row">
+            <div class="col-4">
+              <label for="turnoSel">Turno</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="turnoSel" fullWidth>
+                <nb-option *ngFor="let turno of listaTurno" [value]="turno.ID_TURNO">{{turno.NOMBRE_TURNO}}</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <!-- lugarTrabajoEmpleado -->
+          <div class="row">
+            <div class="col-4">
+              <label for="lugarTrabajo">Lugar de Trabajo</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="lugarTrabajo" selected="1" placeholder="Lugar de Trabajo" fullWidth>
+                <nb-option value="DIRECTO">DIRECTO</nb-option>
+                <nb-option value="INDIRECTO">INDIRECTO</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <!-- manoObraEmpleado -->
+          <div class="row">
+            <div class="col-4">
+              <label for="manoObra">Mano de Obra</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="manoObra" selected="1" placeholder="Mano de obra" fullWidth>
+                <nb-option value="TERRENO">TERRENO</nb-option>
+                <nb-option value="OFICINA">OFICINA</nb-option>
+                <nb-option value="TALLER">TALLER</nb-option>
+              </nb-select>
+            </div>
+          </div>
+          <!-- ValorEmpleado -->
+          <div class="row">
+            <div class="col-4">
+              <label for="valorEmpleado">Valor Empleado</label>
+            </div>
+            <div class="col-6">
+              <nb-select formControlName="valorEmpleado" selected="1" placeholder="Vigencia" fullWidth>
+                <nb-option value="TRAB">TRABAJANDO</nb-option>
+                <nb-option value="INAS">INASISTENCIA</nb-option>
+                <nb-option value="LICM">LICENCIA MEDICA</nb-option>
+                <nb-option value="VAC">VACACIONES</nb-option>
+                <nb-option value="DESC">DESCUENTO</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <label for="fechaini">Fecha inicio</label>
+            </div>
+            <div class="col-6">
+              <input formControlName="fechaini" [nbDatepicker]="fecha1" placeholder="Fecha de Inicio" nbInput
+                fullWidth>
+              <nb-datepicker #fecha1 [min]="min" [max]="max" format="DD-MM-YYYY"></nb-datepicker>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <label for="fechafin">Fecha fin</label>
+            </div>
+            <div class="col-6">
+              <input formControlName="fechafin" [nbDatepicker]="fecha2" placeholder="Fecha Fin" nbInput fullWidth>
+              <nb-datepicker #fecha2 [min]="min" [max]="max" format="DD-MM-YYYY"></nb-datepicker>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+      <div class="row">
+        <div class="col-6 text-left"><button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+        </div>
+        <div class="col-6 text-right"><button nbButton status="success" (click)="actualizarEmpleado()">Agregar</button>
+        </div>
+      </div>
+    </form>
+  </nb-card-body>
+
+
+</nb-card>

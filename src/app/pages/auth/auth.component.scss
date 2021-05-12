@@ -1,0 +1,6 @@
+
+::ng-deep {
+    nb-layout-column > nb-card > nb-card-header{
+        display: none !important;
+    }
+}

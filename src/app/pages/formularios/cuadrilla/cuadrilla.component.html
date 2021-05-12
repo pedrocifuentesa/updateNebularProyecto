@@ -1,0 +1,65 @@
+<nb-card>
+    <nb-card-header class="bg-secondary text-light text-center">Informacion Cuadrilla</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-12 col-lg-6 col-md-6">
+                <nb-select fullWidth>
+                    <nb-option (click)="cuadrillaSeleccionada(cuadrilla)" *ngFor="let cuadrilla of cuadrillas" [value]="cuadrilla.ID_CUADRILLA">{{cuadrilla.NOMBRE_CUADRILLA}}</nb-option>
+                </nb-select>
+                <p>Nombre: {{nombreCuadrilla}}</p>
+                <p>Estado: {{estadoCuadrilla}} </p>
+            </div>
+            <div class="col-12 col-lg-6 col-md-6">
+                <button  class="btn btn-sm btn-primary btn-block" (click)="mdlCrearCuadrilla()">Crear nueva Cuadrilla</button>
+                <button [disabled]="cuadrillaSelected===undefined" class="btn btn-sm btn-info btn-block" (click)="mdlUpdateCuadrilla()">Modificar Cuadrilla</button>
+                <button [disabled]="cuadrillaSelected===undefined" class="btn btn-sm btn-danger btn-block" (click)="mdlDeleteCuadrilla()">Eliminar Cuadrilla</button>
+            </div>
+        </div>
+
+    </nb-card-body>
+</nb-card>
+
+<nb-card>
+    <nb-card-header class="bg-secondary text-light text-center">Informacion Dotación</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-12">
+                <button [disabled]="cuadrillaSelected===undefined" class="btn btn-sm btn-primary" (click)="mdlCrearEmpleadoDotacion()">Agregar Empleado a Cuadrilla</button>
+            </div>
+            <div class="col-12 ">
+                <table class="table table-sm table-active">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>RUT EMPLEADO</th>
+                            <th>NOMBRE</th>
+                            <th>CARGO</th>
+                           <!--  <th>FECHA INICIO</th>
+                            <th>FECHA FIN</th> -->
+                            <th>VIGENCIA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dotacion of dotacionCuadrilla">
+                            <td class="text-nowrap">
+                                <!-- <button type="button" class="btn-Sep btn btn-info" (click)="mdlUpdateEmpleadoDotacion(dotacion)"><i
+                                        class="fas fa-edit"></i></button> -->
+                                <button type="button" class="btn-Sep btn btn-danger" (click)="mdlDeleteEmpleadoDotacion(dotacion)"><i
+                                        class="fas fa-trash-alt"></i></button>
+                            </td>
+                            <td>{{dotacion.RUT_EMPLEADO}}</td>
+                            <td>{{dotacion.EMPLEADO}}</td>
+                            <td>{{dotacion.CARGO}}</td>
+                            <!-- <td></td> -->
+                            <!-- <td>{{dotacion.FECHA_INI_DOTACION | date: 'dd-MM-yyyy' }}</td> -->
+                            <!-- <td></td> -->
+                            <!-- <td>{{dotacion.FECHA_FIN_DOTACION | date: 'dd-MM-yyyy' }}</td> -->
+                            <td>{{dotacion.VIGENCIA_DOTACION}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

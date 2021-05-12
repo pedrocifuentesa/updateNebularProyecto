@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-lg-4 text-center">
+        <button class="btn btn-secondary btn-block" (click)="open()">Crear Contrato</button>   
+    </div>
+</div>
+
+<div class="row" style="margin-top: 1rem;">
+    <div class="col-12">
+        <table class="table table-secondary table-sm  table-striped table-inverse">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>Empresa</th>
+                    <th>N° Contrato</th>
+                    <th>Nombre Contrato</th>
+                    <th>Descripción</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th>Vigencia</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tablaContrato of tablaContratos">
+                        <td class="text-nowrap">
+                            <button nbTooltip="Editar" type="button" class="btn-Sep btn btn-secondary" (click)="modificarContrato(tablaContrato.value)"><i class="fas fa-edit"></i></button>
+                            <button nbTooltip="Eliminar" [disabled]="tablaContrato.value.VIGENCIA_CONTRATO ==='No'"  type="button" class="btn-Sep btn btn-secondary" (click)="borrarContrato(tablaContrato.value)"><i class="fas fa-trash-alt"></i></button>
+                            <button (click)="administrarAsistencia(tablaContrato)" nbTooltip="Administrar Areas" type="button" class="btn-Sep btn btn-secondary"><i class="fas fa-users"></i></button>
+                        </td>
+                        <td>{{tablaContrato.found.NOMBRE_FANTASIA_EMPRESA}}</td>
+                        <td>{{tablaContrato.value.NUMERO_CONTRATO}}</td>
+                        <td>{{tablaContrato.value.NOMBRE_CONTRATO}}</td>
+                        <td>{{tablaContrato.value.DESCRIPCION_CONTRATO}}</td>
+                        <td>{{tablaContrato.value.FECHA_INI_CONTRATO | date: 'dd-MM-yyyy' }}</td>
+                        <td>{{tablaContrato.value.FECHA_FIN_CONTRATO | date: 'dd-MM-yyyy'}}</td>
+                        <td>{{tablaContrato.value.VIGENCIA_CONTRATO}}</td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<nb-card>
+    <nb-card-header>{{title}}</nb-card-header>
+    <nb-card-body>
+      <form #frmPerCotrato id="formPersonaContrato" [formGroup]="formPersonaContrato">
+      <nb-select  formControlName="selPersonas" selected="1" placeholder="Empleado" fullWidth>
+        <nb-option  *ngFor="let personas of lista_personas"
+            [value]="personas">[{{personas.RUT}}] {{personas.EMPLEADO}}</nb-option>
+      </nb-select>
+      <nb-select  formControlName="seltipoempleado" selected="1" placeholder="Tipo empleado" fullWidth>
+        <nb-option  *ngFor="let listaTE of lista_TE"
+            [value]="listaTE">{{listaTE.NOMBRE_TIPO_TE}}</nb-option>
+      </nb-select>
+      <nb-select  formControlName="selEspecialidad" placeholder="Especialidad" fullWidth>
+        <nb-option  *ngFor="let listEspecialidad of listaEspecialidad"
+            [value]="listEspecialidad.ID_ESPECIALIDAD">{{listEspecialidad.NOMBRE_ESPECIALIDAD}}</nb-option>
+      </nb-select>
+      <nb-select  formControlName="selcargo" selected="1" placeholder="Name" placeholder="Cargo" fullWidth>
+        <nb-option  *ngFor="let listaCargo of lista_Cargo"
+            [value]="listaCargo">{{listaCargo.NOMBRE_CARGO}}</nb-option>
+      </nb-select>
+      <nb-select  formControlName="seljornada" selected="1" placeholder="Jornada" fullWidth>
+        <nb-option  *ngFor="let listaJornada of lista_Jornada"
+            [value]="listaJornada">[{{listaJornada.SIGLA_JORNADA}}] {{listaJornada.NOMBRE_JORNADA}}</nb-option>
+      </nb-select>
+      <nb-select  formControlName="selturno" selected="1" placeholder="Turno" fullWidth>
+        <nb-option  *ngFor="let listaTurno of lista_Turno"
+            [value]="listaTurno">[{{listaTurno.SIGLA_TURNO}}] {{listaTurno.NOMBRE_TURNO}}</nb-option>
+      </nb-select>
+
+        <input formControlName="finicio" placeholder="Fecha inicio" fullWidth nbInput  [nbDatepicker]="finicio1">
+        <nb-datepicker #finicio1 [min]="min" [max]="max" format="DD-MM-YYYY"></nb-datepicker>
+
+        <input formControlName="ftermino" placeholder="Fecha termino" fullWidth nbInput  [nbDatepicker]="ftermino2">
+        <nb-datepicker #ftermino2 [min]="min" [max]="max" format="DD-MM-YYYY"></nb-datepicker>
+
+      <!-- <input #lugarTrabajo formControlName="lugarTrabajo" fullWidth type="text" nbInput placeholder="Lugar de Trabajo"> -->
+      <nb-select #lugarTrabaj formControlName="lugarTrabajo" selected="1" placeholder="Lugar de Trabajo" fullWidth>
+        <nb-option value="DIRECTO">DIRECTO</nb-option>
+        <nb-option value="INDIRECTO">INDIRECTO</nb-option>
+      </nb-select>
+     <!--  <input #manoObra formControlName="manoObra" fullWidth type="text" nbInput placeholder="Mano de obra"> -->
+      <nb-select #manoObr  formControlName="manoObra" selected="1" placeholder="Mano de obra" fullWidth>
+        <nb-option value="TERRENO">TERRENO</nb-option>
+        <nb-option value="OFICINA">OFICINA</nb-option>
+        <nb-option value="TALLER">TALLER</nb-option>
+
+      </nb-select>
+      <!-- <nb-select #valorEmplead formControlName="valorEmpleado" selected="TRAB" placeholder="Vigencia" fullWidth>
+        <nb-option value="TRAB">TRABAJANDO</nb-option>
+        <nb-option value="INAS">INASISTENCIA</nb-option>
+        <nb-option value="LICM">LICENCIA MEDICA</nb-option>
+        <nb-option value="VAC">VACACIONES</nb-option>
+        <nb-option value="DESC">DESCUENTO</nb-option>
+      </nb-select> -->
+<div class="row">
+   <button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button>
+      <button nbButton  status="success" (click)="submit(frmPerCotrato.value)">Agregar</button>
+</div>
+     
+    </form>
+    </nb-card-body>
+   
+  </nb-card>
+  

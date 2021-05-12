@@ -1,0 +1,15 @@
+<nb-card>
+    
+  <nb-card-header>Eliminar Contrato</nb-card-header>
+  <nb-card-body class="table-responsive-xl">
+    <div class="row">
+      <div class="col-12">
+        <p>¿Deseas eliminar este contrato?</p>
+      </div>
+    </div>
+      <div class="row">
+          <div class="col-6 text-left"><button class="cancel" nbButton status="danger" (click)="cancel()">Cancel</button></div>
+          <div class="col-6 text-right"><button nbButton  status="success"  (click)="eliminar(contrato_FrmDelete)">Agregar</button></div>
+      </div>
+  </nb-card-body>
+</nb-card>
